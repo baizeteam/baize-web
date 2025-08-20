@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  baize-compress-image: link:C:/Users/xiaoyu/AppData/Local/pnpm/global/5/node_modules/baize-compress-image
-
 importers:
 
   .:
@@ -24,8 +21,8 @@ importers:
         specifier: ^5.27.0
         version: 5.27.0(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       baize-compress-image:
-        specifier: link:C:/Users/xiaoyu/AppData/Local/pnpm/global/5/node_modules/baize-compress-image
-        version: link:C:/Users/xiaoyu/AppData/Local/pnpm/global/5/node_modules/baize-compress-image
+        specifier: ^1.0.0
+        version: 1.0.0
       next:
         specifier: ^15.3.0
         version: 15.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -533,6 +530,9 @@ packages:
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
+
+  baize-compress-image@1.0.0:
+    resolution: {integrity: sha512-/COjnEUIVBdtNd+11rcIL6tkR9FRLP4D2ioEXX9IjooMARB4oCX950ihX7pxRLTI8bnkVEL8zu+UlVEcWEojng==}
 
   browserslist@4.25.2:
     resolution: {integrity: sha512-0si2SJK3ooGzIawRu61ZdPCO1IncZwS8IzuX73sPZsXW6EQ/w/DAfPyKI8l1ETTCr2MnvqWitmlCUxgdul45jA==}
@@ -1592,6 +1592,8 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
+
+  baize-compress-image@1.0.0: {}
 
   browserslist@4.25.2:
     dependencies:
