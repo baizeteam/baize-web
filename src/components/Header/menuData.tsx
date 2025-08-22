@@ -19,21 +19,10 @@ const menuData: Menu[] = [
     path: "/baize-toolbox",
     newTab: false,
   },
-  {
-    id: "about",
-    title: "关于",
-    path: "/about",
-    newTab: false,
-  },
-  {
-    id: "support",
-    title: "Support",
-    path: "/contact",
-    newTab: false,
-  },
+
   {
     id: "more",
-    title: "More",
+    title: "更多",
     newTab: false,
     submenu: [
       {
@@ -42,11 +31,10 @@ const menuData: Menu[] = [
         path: "/quick-study",
         newTab: false,
       },
-
       {
-        id: 48,
-        title: "Error Page",
-        path: "/error",
+        id: "about",
+        title: "关于",
+        path: "/about",
         newTab: false,
       },
     ],

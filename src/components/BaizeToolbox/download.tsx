@@ -38,7 +38,7 @@ const Download = (props) => {
       href={hasDownloadUrl ? downloadUrl : "/"}
       onClick={hasDownloadUrl ? () => {} : (e) => e.preventDefault()}
       download={hasDownloadUrl}
-      className={`${hasDownloadUrl ? "bg-indigo-500 hover:bg-indigo-600" : "cursor-not-allowed bg-indigo-400"} flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
+      className={`${hasDownloadUrl ? "bg-primary hover:bg-primary/90" : "bg-primary/60 cursor-not-allowed"} flex items-center justify-center rounded-md px-4 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2`}
     >
       {curOsData.icon === "win" && <WindowsOutlined />}
       {curOsData.icon === "mac" && <AppleOutlined />}

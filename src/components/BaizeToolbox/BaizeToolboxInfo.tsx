@@ -1,6 +1,7 @@
 import React from "react";
 import { repoUrl, baseParams } from "@/utils/githubHelper";
 import { projectInfo } from "@/utils/textHelper";
+import PageInfo from "../Common/PageInfo";
 import Download from "./download";
 
 export const dynamic = "force-dynamic";
@@ -24,34 +25,23 @@ export default async function BaizeToolboxInfo() {
   console.log(repoInfo, repoReleases, contributors);
 
   return (
-    <div className="container pt-16 md:pt-20 lg:pt-28">
-      <div className="mx-auto max-w-2xl pt-4 lg:pt-32">
-        <div className="mb-8 text-center">
-          <h1
-            style={{
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              color: "transparent",
-            }}
-            className="inline-block bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-4xl font-bold tracking-tight text-transparent sm:text-6xl"
-          >
-            {projectInfo?.title}
-          </h1>
-          <p className="mt-6 text-left indent-10 text-lg leading-8 text-gray-600">
-            {projectInfo?.description}
-          </p>
-          <div className="mt-16 flex items-center justify-center gap-x-6">
-            <Download repoReleases={repoReleases} />
-            <a
-              href="https://github.com/baizeteam/baize-toolbox/releases"
-              target="_blank"
-              className="text-sm leading-6 font-semibold text-gray-400 hover:text-gray-600"
-            >
-              查看更多版本 <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-        {/* <AppGithubStatus repoInfo={repoInfo} contributors={contributors} /> */}
+    <div className="container">
+      <PageInfo
+        title={projectInfo?.title}
+        description={projectInfo?.description}
+      />
+
+      {/* <AppGithubStatus repoInfo={repoInfo} contributors={contributors} /> */}
+
+      <div className="mt-16 flex items-center justify-center gap-x-6">
+        <Download repoReleases={repoReleases} />
+        <a
+          href="https://github.com/baizeteam/baize-toolbox/releases"
+          target="_blank"
+          className="text-sm leading-6 font-semibold text-gray-400 hover:text-gray-600"
+        >
+          查看更多版本 <span aria-hidden="true">→</span>
+        </a>
       </div>
     </div>
   );
