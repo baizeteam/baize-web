@@ -27,7 +27,9 @@ export default function RootLayout({
         <AntdRegistry>
           <Providers>
             <Header />
-            {children}
+            <div className="min-h-[calc(100vh-48rem)] md:min-h-[calc(100vh-40rem)] lg:min-h-[calc(100vh-27rem)]">
+              {children}
+            </div>
             <Footer />
             <ScrollToTop />
           </Providers>
