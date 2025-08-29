@@ -82,7 +82,6 @@ export default function RootLayout({
         <head /> will contain the components returned by the nearest parent
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
-      <meta name="sogou_site_verification" content="OVSQRP2MlP" />
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
