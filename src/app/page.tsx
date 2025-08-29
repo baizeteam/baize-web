@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "主页",
+  title: "白泽开源团队 - 主页",
   description: `白泽开源团队提供图片压缩、CDN插件、白泽工具箱等多种实用工具，帮助开发者提升工作效率，专注于核心业务开发。`,
   alternates: { canonical: "/" },
   openGraph: {
