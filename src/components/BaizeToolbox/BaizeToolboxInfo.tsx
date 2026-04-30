@@ -3,16 +3,21 @@ import { repoUrl, baseParams } from "@/utils/githubHelper";
 import PageInfo from "../Common/PageInfo";
 import Download from "./download";
 import { gitHubUrl } from "@/utils/textHelper";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic";
 
 export default async function BaizeToolboxInfo({
   title,
   description,
+  locale,
 }: {
   title: any;
   description: React.ReactNode;
+  locale: string;
 }) {
+  const t = await getTranslations({ locale, namespace: "commonUI" });
+
   async function init() {
     const [repoInfoRes, repoReleasesRes, contributorsRes] = await Promise.all([
       fetch(repoUrl, baseParams),
@@ -41,7 +46,7 @@ export default async function BaizeToolboxInfo({
           target="_blank"
           className="text-sm leading-6 font-semibold text-gray-400 hover:text-gray-600"
         >
-          查看更多版本 <span aria-hidden="true">→</span>
+          {t("viewMoreVersions")} <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>

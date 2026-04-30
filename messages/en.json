@@ -1,0 +1,123 @@
+{
+  "common": {
+    "siteName": "Baize Open Source Team",
+    "siteDesc": "Baize Open Source Team provides practical tools such as image compression, CDN plugins, and Baize Toolbox to help developers improve efficiency and focus on core business development.",
+    "learnMore": "Learn More",
+    "viewDetails": "View Details",
+    "useNow": "Try Now",
+    "learnNow": "Learn More",
+    "visitGitHub": "Visit GitHub",
+    "github": "GitHub",
+    "about": "About",
+    "copyright": "Baize Open Source Team"
+  },
+  "nav": {
+    "home": "Home",
+    "imageCompress": "Image Compress",
+    "baizeToolbox": "Baize Toolbox",
+    "more": "More",
+    "viteCdn": "CDN Plugin (Vite)",
+    "webpackCdn": "CDN Plugin (Webpack)",
+    "quickStudy": "VUE & REACT & Micro Frontend",
+    "about": "About"
+  },
+  "home": {
+    "heroBadge": "🚀 Baize Open Source Team - A Frontend Team That Loves to Tinker",
+    "heroTitle1": "Make Development More",
+    "heroHighlight1": "Efficient",
+    "heroTitle2": "Make Work More",
+    "heroHighlight2": "Relaxed",
+    "heroDesc": "Baize Open Source Team provides practical tools such as image compression, CDN plugins, and Baize Toolbox to help developers improve efficiency and focus on core business development.",
+    "toolsTitle": "Popular Tools",
+    "toolsDesc": "Curated collection of the most practical development tools, one click away, boosting your productivity",
+    "imageCompressTitle": "Image Compression Tool",
+    "imageCompressDesc": "Smart image compression that maintains quality while significantly reducing file size, supporting multiple formats",
+    "cdnTitle": "CDN Plugins",
+    "cdnDesc": "CDN plugins for Vite and Webpack, quick resource acceleration setup to improve loading speed",
+    "microFrontendTitle": "VUE & REACT & Micro Frontend",
+    "microFrontendDesc": "Quick comparison learning projects for Vue, React, and Micro Frontend to help you get started easily"
+  },
+  "about": {
+    "title": "About Baize Open Source Team",
+    "desc": "We are a team dedicated to open-source technology innovation, focused on developing high-quality tools and solutions to contribute to the developer community.",
+    "intro": "Baize (白泽), a legendary mythical beast that can distinguish good from evil and understand all things. We chose this name to represent our deep understanding of technology and firm belief in the open-source spirit.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "Through open-source technology innovation, we lower the development barrier, improve development efficiency, and enable more developers to focus on creating value, driving progress across the entire tech ecosystem.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "To become a leader in open-source technology, building an open, collaborative, and innovative tech community where the open-source spirit benefits every developer who loves technology.",
+    "joinTitle": "Join Us",
+    "joinDesc": "If you love tinkering with technologies and want to contribute to the developer community, welcome to join the Baize Open Source Team!",
+    "howToJoin": "How to Participate",
+    "joinStep1": "🌟 Follow our GitHub projects, submit Issues and Pull Requests",
+    "joinStep2": "💬 Join our tech discussion groups and share your ideas",
+    "joinStep3": "📚 Contribute code, documentation, or translations",
+    "joinStep4": "🚀 Participate in project development and maintenance"
+  },
+  "imageCompress": {
+    "title": "Image Compression",
+    "desc": "A professional open-source image compression tool by the Baize team. Supports JPG, JPEG, WebP, and PNG formats. Uses queue + concurrent processing technology for efficient batch compression. Drag and drop to start, with real-time progress and comparison.",
+    "free": "Free",
+    "freeDesc": "Whether it's the website or NPM package, everything is free!",
+    "highPerformance": "High Performance",
+    "highPerformanceDesc": "Uses queue + concurrent协同 processing combined with efficient transfer mechanisms to ensure high-performance system operation",
+    "npm": "NPM",
+    "npmLinkText": "View Usage"
+  },
+  "toolbox": {
+    "title": "Baize Toolbox",
+    "desc": "Baize Toolbox is a powerful multimedia tool that provides a wide range of multimedia processing features. Whether you need audio/video transcoding, extracting audio/video/subtitles, text-to-speech (TTS), screen recording, screenshots, or compressing audio, video, and images, this tool can handle it all with ease.",
+    "free": "Free",
+    "freeDesc": "Free to use after download and installation",
+    "multiFunc": "Multi-functional",
+    "feature1": "Audio/Video Transcoding",
+    "feature2": "Extract Audio/Video/Subtitles",
+    "feature3": "Text-to-Speech (TTS)",
+    "feature4": "Screen Recording & Screenshots",
+    "feature5": "Compress Audio, Video & Images"
+  },
+  "viteCdn": {
+    "title": "Vite CDN Plugin",
+    "desc": "A library for using public CDNs in Vite.js, including unpkg, jsdelivr and other CDN resources. If loading fails, it automatically switches to the next CDN."
+  },
+  "webpackCdn": {
+    "title": "Webpack CDN Plugin",
+    "desc": "A library for using public CDNs in Webpack, including unpkg, jsdelivr and other CDN resources. If loading fails, it automatically switches to the next CDN."
+  },
+  "quickStudy": {
+    "title": "VUE & REACT & Micro Frontend",
+    "desc": "A React/Vue3 learning platform based on the micro-app micro-frontend framework. Helps developers quickly master core technologies of both frameworks through comparative learning. Includes practical projects for React Hooks, Vue3 Composition API, state management, routing, as well as micro-frontend architecture and Vite plugin development experience."
+  },
+  "imageCompressUI": {
+    "dragText": "Click or drag images here to compress",
+    "dragHint": "Supports single or batch compression, compatible with JPG, JPEG, WebP, PNG formats",
+    "totalImages": "{count} image(s) in total",
+    "originalSize": "Original Size",
+    "compressedSize": "Compressed Size",
+    "compressRate": "Compression Rate",
+    "compressTime": "Time Taken",
+    "downloadCompressed": "Download Compressed",
+    "retry": "Retry",
+    "compressStats": "Compression Statistics",
+    "totalCount": "Total Images",
+    "completed": "Completed",
+    "compressing": "Compressing",
+    "failed": "Failed",
+    "statusCompleted": "Completed",
+    "statusCompressing": "Compressing...",
+    "statusFailed": "Failed",
+    "compressFailedMsg": "Compression failed"
+  },
+  "toolboxUI": {
+    "download": "Download",
+    "notSupported": "Download not available"
+  },
+  "commonUI": {
+    "viewSource": "View Source",
+    "viewMoreVersions": "View More Versions"
+  },
+  "footer": {
+    "tagline": "Baize Open Source Team - A Frontend Team That Loves to Tinker",
+    "usefulLinks": "Useful Links",
+    "supportHelp": "Support & Help"
+  }
+}

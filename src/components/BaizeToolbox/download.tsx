@@ -7,8 +7,10 @@ import {
   LinuxOutlined,
   FileUnknownOutlined,
 } from "@ant-design/icons";
+import { useTranslations } from "next-intl";
 
 const Download = (props) => {
+  const t = useTranslations("toolboxUI");
   const { repoReleases } = props;
   const [curOsData, setCurOsData] = useState<{
     icon: string;
@@ -28,7 +30,7 @@ const Download = (props) => {
   }, []);
 
   if (!curOsData) {
-    return null; // 当 curOsData 为 null 时，返回 null，避免组件渲染期间的错误
+    return null;
   }
 
   const hasDownloadUrl = downloadUrl !== "";
@@ -44,7 +46,7 @@ const Download = (props) => {
       {curOsData.icon === "mac" && <AppleOutlined />}
       {curOsData.icon === "linux" && <LinuxOutlined />}
       {curOsData.icon === "unknow" && <FileUnknownOutlined />}
-      <span className="ml-2">{hasDownloadUrl ? "下载" : "暂不支持下载"}</span>
+      <span className="ml-2">{hasDownloadUrl ? t("download") : t("notSupported")}</span>
     </a>
   );
 };

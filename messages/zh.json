@@ -1,0 +1,123 @@
+{
+  "common": {
+    "siteName": "白泽开源团队",
+    "siteDesc": "白泽开源团队提供图片压缩、CDN 插件、白泽工具箱等多种实用工具，帮助开发者提升工作效率，专注于核心业务开发。",
+    "learnMore": "了解更多",
+    "viewDetails": "查看详情",
+    "useNow": "立即使用",
+    "learnNow": "学习更多",
+    "visitGitHub": "访问GitHub",
+    "github": "github",
+    "about": "关于",
+    "copyright": "白泽开源团队"
+  },
+  "nav": {
+    "home": "主页",
+    "imageCompress": "图片压缩",
+    "baizeToolbox": "白泽工具箱",
+    "more": "更多",
+    "viteCdn": "CDN插件(vite)",
+    "webpackCdn": "CDN插件(webpack)",
+    "quickStudy": "VUE & REACT & 微前端",
+    "about": "关于"
+  },
+  "home": {
+    "heroBadge": "🚀 白泽开源团队 - 一个喜欢折腾的大前端团队",
+    "heroTitle1": "让开发更",
+    "heroHighlight1": "高效",
+    "heroTitle2": "让工作更",
+    "heroHighlight2": "轻松",
+    "heroDesc": "白泽开源团队提供图片压缩、CDN 插件、白泽工具箱等多种实用工具，帮助开发者提升工作效率，专注于核心业务开发。",
+    "toolsTitle": "常用工具",
+    "toolsDesc": "精选最实用的开发工具，一键直达，提升开发效率",
+    "imageCompressTitle": "图片压缩工具",
+    "imageCompressDesc": "智能压缩图片，保持画质的同时大幅减小文件体积，支持多种格式",
+    "cdnTitle": "CDN插件",
+    "cdnDesc": "支持Vite和Webpack的CDN插件，快速配置资源加速，提升加载速度",
+    "microFrontendTitle": "VUE & REACT & 微前端",
+    "microFrontendDesc": "Vue、React、微前端的快速对比学习项目，让你轻松入门Vue 、React以及微前端"
+  },
+  "about": {
+    "title": "关于白泽开源团队",
+    "desc": "我们是一支致力于开源技术创新的团队，专注于开发高质量的工具和解决方案，为开发者社区贡献力量。",
+    "intro": "白泽，传说中的神兽，能辨善恶，通晓万物。我们以此为名，寓意着团队对技术本质的深刻理解和对开源精神的坚定信念。",
+    "missionTitle": "我们的使命",
+    "missionDesc": "通过开源技术创新，降低开发门槛，提升开发效率，让更多开发者能够专注于创造价值，推动整个技术生态的进步。",
+    "visionTitle": "我们的愿景",
+    "visionDesc": "成为开源技术领域的引领者，构建一个开放、协作、创新的技术社区，让开源精神惠及每一个热爱技术的开发者。",
+    "joinTitle": "加入我们",
+    "joinDesc": "如果你喜欢折腾各种技术，想要为开发者社区贡献力量，欢迎加入白泽开源团队！",
+    "howToJoin": "如何参与",
+    "joinStep1": "🌟 关注我们的GitHub项目，提出Issue和Pull Request",
+    "joinStep2": "💬 加入我们的技术讨论群，分享你的想法",
+    "joinStep3": "📚 贡献代码、文档或翻译",
+    "joinStep4": "🚀 参与项目开发和维护"
+  },
+  "imageCompress": {
+    "title": "图片压缩",
+    "desc": "白泽团队开源的专业图片压缩工具，支持JPG、JPEG、WebP、PNG格式，采用队列+并发处理技术，提供高效的批量压缩服务。拖拽上传即可开始压缩，实时显示压缩进度和效果对比。",
+    "free": "免费",
+    "freeDesc": "网站也好，NPM包也好，全部免费用！",
+    "highPerformance": "高性能",
+    "highPerformanceDesc": "采用了队列+并发的协同处理，结合高效传输机制，保障系统高性能运行",
+    "npm": "NPM",
+    "npmLinkText": "查看使用方式"
+  },
+  "toolbox": {
+    "title": "白泽工具箱",
+    "desc": "白泽工具箱是一款功能强大的多媒体工具，为用户提供了多种多样的多媒体处理功能。无论您是需要对音视频转码、提取音频/视频/字幕、文字转语音(TTS)、屏幕录制、截图，还是对音视频图片进行压缩，这个工具都能轻松实现。",
+    "free": "免费",
+    "freeDesc": "下载安装后即可免费使用",
+    "multiFunc": "多功能",
+    "feature1": "音视频转码",
+    "feature2": "提取音频/视频/字幕",
+    "feature3": "文字转语音(TTS)",
+    "feature4": "屏幕录制、截图",
+    "feature5": "压缩音视频和图片"
+  },
+  "viteCdn": {
+    "title": "Vite CDN插件",
+    "desc": "这是一个在 vite.js 中使用公共 cdn 的库，包括了 unpkg, jsdelivr 等多个 cdn 资源，如加载失败会自动切换下一个 cdn 进行加载。"
+  },
+  "webpackCdn": {
+    "title": "Webpack CDN插件",
+    "desc": "这是一个在 webpack 中使用公共 cdn 的库，包括了 unpkg, jsdelivr 等多个 cdn 资源，如加载失败会自动切换下一个 cdn 进行加载。"
+  },
+  "quickStudy": {
+    "title": "VUE & REACT & 微前端",
+    "desc": "基于micro-app微前端框架的React/Vue3学习平台，通过对比学习帮助开发者快速掌握两个框架的核心技术。包含React Hooks、Vue3组合式API、状态管理、路由控制等实践项目，以及微前端架构和Vite插件的开发经验。"
+  },
+  "imageCompressUI": {
+    "dragText": "点击或拖拽图片到此区域进行压缩",
+    "dragHint": "支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG 格式",
+    "totalImages": "共 {count} 张图片",
+    "originalSize": "原始大小",
+    "compressedSize": "压缩后大小",
+    "compressRate": "压缩率",
+    "compressTime": "压缩耗时",
+    "downloadCompressed": "下载压缩后图片",
+    "retry": "重试",
+    "compressStats": "压缩统计",
+    "totalCount": "总图片数",
+    "completed": "压缩完成",
+    "compressing": "压缩中",
+    "failed": "压缩失败",
+    "statusCompleted": "已完成",
+    "statusCompressing": "压缩中...",
+    "statusFailed": "压缩失败",
+    "compressFailedMsg": "压缩失败"
+  },
+  "toolboxUI": {
+    "download": "下载",
+    "notSupported": "暂不支持下载"
+  },
+  "commonUI": {
+    "viewSource": "查看源码",
+    "viewMoreVersions": "查看更多版本"
+  },
+  "footer": {
+    "tagline": "白泽开源团队 - 一个喜欢折腾的大前端团队",
+    "usefulLinks": "Useful Links",
+    "supportHelp": "Support & Help"
+  }
+}

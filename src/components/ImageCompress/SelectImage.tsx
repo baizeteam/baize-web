@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { InboxOutlined, DownloadOutlined } from "@ant-design/icons";
 import { Upload, Button } from "antd";
 import { ImageCompressor, CompressBackInfo } from "baize-compress-image";
+import { useTranslations } from "next-intl";
 
 const { Dragger } = Upload;
 
@@ -19,6 +20,7 @@ interface ImageItem {
 }
 
 export default function SelectImage() {
+  const t = useTranslations("imageCompressUI");
   const [imageList, setImageList] = useState<ImageItem[]>([]);
   const workerRef = useRef<ImageCompressor>(null);
 
@@ -37,7 +39,6 @@ export default function SelectImage() {
   const handleMultipleFileChange = async (e: any) => {
     const files = Array.from(e.fileList || [e.file]);
 
-    // 添加新图片到列表
     const newImages: ImageItem[] = files.map((file: File) => ({
       id: Math.random().toString(36).substr(2, 9),
       originalFile: file,
@@ -47,7 +48,6 @@ export default function SelectImage() {
 
     setImageList((prev) => [...prev, ...newImages]);
 
-    // 自动压缩新添加的图片
     for (const image of newImages) {
       await compressImage(image);
     }
@@ -97,7 +97,7 @@ export default function SelectImage() {
               ? {
                   ...img,
                   status: "error",
-                  error: result.reason?.toString() || "压缩失败",
+                  error: result.reason?.toString() || t("compressFailedMsg"),
                 }
               : img,
           ),
@@ -110,7 +110,7 @@ export default function SelectImage() {
             ? {
                 ...img,
                 status: "error",
-                error: error?.toString() || "压缩失败",
+                error: error?.toString() || t("compressFailedMsg"),
               }
             : img,
         ),
@@ -147,13 +147,13 @@ export default function SelectImage() {
   const getStatusText = (status: string) => {
     switch (status) {
       case "completed":
-        return "已完成";
+        return t("statusCompleted");
       case "compressing":
-        return "压缩中...";
+        return t("statusCompressing");
       case "error":
-        return "压缩失败";
+        return t("statusFailed");
       default:
-        return "压缩中...";
+        return t("statusCompressing");
     }
   };
 
@@ -172,10 +172,10 @@ export default function SelectImage() {
               <InboxOutlined className="text-4xl text-blue-500" />
             </p>
             <p className="ant-upload-text text-lg font-semibold">
-              点击或拖拽图片到此区域进行压缩
+              {t("dragText")}
             </p>
             <p className="ant-upload-hint text-gray-500">
-              支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG 格式
+              {t("dragHint")}
             </p>
           </Dragger>
         </div>
@@ -184,7 +184,7 @@ export default function SelectImage() {
         {imageList.length > 0 && (
           <div className="mb-6 flex items-center justify-between">
             <div className="text-gray-600 dark:text-gray-300">
-              共 {imageList.length} 张图片
+              {t("totalImages", { count: imageList.length })}
             </div>
           </div>
         )}
@@ -237,7 +237,7 @@ export default function SelectImage() {
                     <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-4">
                       <div>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          原始大小
+                          {t("originalSize")}
                         </p>
                         <p className="font-medium dark:text-gray-200">
                           {formatFileSize(imageItem.originalSize)}
@@ -247,7 +247,7 @@ export default function SelectImage() {
                         <>
                           <div>
                             <p className="text-sm text-gray-500 dark:text-gray-400">
-                              压缩后大小
+                              {t("compressedSize")}
                             </p>
                             <p className="font-medium dark:text-gray-200">
                               {formatFileSize(imageItem.compressedSize)}
@@ -255,7 +255,7 @@ export default function SelectImage() {
                           </div>
                           <div>
                             <p className="text-sm text-gray-500 dark:text-gray-400">
-                              压缩率
+                              {t("compressRate")}
                             </p>
                             <p className="font-medium text-green-600 dark:text-green-400">
                               {imageItem.compressRate?.toFixed(1)}%
@@ -263,7 +263,7 @@ export default function SelectImage() {
                           </div>
                           <div>
                             <p className="text-sm text-gray-500 dark:text-gray-400">
-                              压缩耗时
+                              {t("compressTime")}
                             </p>
                             <p className="font-medium dark:text-gray-200">
                               {imageItem.compressTime}ms
@@ -282,13 +282,13 @@ export default function SelectImage() {
                             icon={<DownloadOutlined />}
                             onClick={() => downloadImage(imageItem)}
                           >
-                            下载压缩后图片
+                            {t("downloadCompressed")}
                           </Button>
                         )}
 
                       {imageItem.status === "error" && (
                         <Button onClick={() => compressImage(imageItem)}>
-                          重试
+                          {t("retry")}
                         </Button>
                       )}
                     </div>
@@ -310,7 +310,7 @@ export default function SelectImage() {
         {imageList.length > 0 && (
           <div className="mt-8 rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
             <h3 className="mb-4 text-lg font-medium text-gray-900 dark:text-gray-100">
-              压缩统计
+              {t("compressStats")}
             </h3>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
               <div className="text-center">
@@ -318,7 +318,7 @@ export default function SelectImage() {
                   {imageList.length}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  总图片数
+                  {t("totalCount")}
                 </p>
               </div>
               <div className="text-center">
@@ -326,7 +326,7 @@ export default function SelectImage() {
                   {imageList.filter((img) => img.status === "completed").length}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  压缩完成
+                  {t("completed")}
                 </p>
               </div>
               <div className="text-center">
@@ -334,7 +334,7 @@ export default function SelectImage() {
                   {imageList.filter((img) => img.status === "pending").length}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  压缩中
+                  {t("compressing")}
                 </p>
               </div>
               <div className="text-center">
@@ -342,7 +342,7 @@ export default function SelectImage() {
                   {imageList.filter((img) => img.status === "error").length}
                 </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  压缩失败
+                  {t("failed")}
                 </p>
               </div>
             </div>

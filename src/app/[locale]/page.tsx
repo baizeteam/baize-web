@@ -1,93 +1,81 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
-import { baseUrl } from "@/utils/textHelper";
+import { useTranslations } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { baseUrl, gitHubUrl } from "@/utils/textHelper";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-export const metadata: Metadata = {
-  title: "白泽开源团队 - 主页",
-  description: `白泽开源团队提供图片压缩、CDN插件、白泽工具箱等多种实用工具，帮助开发者提升工作效率，专注于核心业务开发。`,
-  alternates: { canonical: "/" },
-  openGraph: {
-    url: "/",
-    title: "白泽开源团队 - 主页",
-    description:
-      "提供图片压缩、Vite CDN、Webpack CDN、学习项目等实用工具与资源。",
-    images: [
-      {
-        url: "/images/logo/icon.png",
-        width: 600,
-        height: 600,
-        alt: "白泽开源团队",
-      },
-    ],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
+  const t = (key: string) => {
+    const keys = key.split(".");
+    let val: any = messages;
+    for (const k of keys) {
+      val = val?.[k];
+    }
+    return val || key;
+  };
+
+  return {
+    title: `${t("common.siteName")} - ${t("nav.home")}`,
+    description: t("common.siteDesc"),
+    alternates: { canonical: `/${locale}` },
+    openGraph: {
+      url: `/${locale}`,
+      title: `${t("common.siteName")} - ${t("nav.home")}`,
+      description: t("common.siteDesc"),
+      images: [
+        {
+          url: "/images/logo/icon.png",
+          width: 600,
+          height: 600,
+          alt: t("common.siteName"),
+        },
+      ],
+    },
+  };
+}
 
 export default function Home() {
+  const t = useTranslations("home");
+  const tCommon = useTranslations("common");
+
   return (
     <>
-      <Script
-        id="ld-json"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "白泽开源团队",
-            url: "https://baize-web.plume.vip/",
-            logo: "https://baize-web.plume.vip/images/logo/icon.png",
-            description:
-              "提供图片压缩、Vite CDN、Webpack CDN、学习项目等实用工具与资源。",
-            hasPart: [
-              {
-                "@type": "WebPage",
-                name: "图片压缩",
-                url: `${baseUrl}/image-compress`,
-              },
-              {
-                "@type": "WebPage",
-                name: "白泽工具箱",
-                url: `${baseUrl}/baize-toolbox`,
-              },
-              {
-                "@type": "WebPage",
-                name: "关于我们",
-                url: `${baseUrl}/about`,
-              },
-            ],
-          }),
-        }}
-      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 py-24 lg:py-32">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="space-y-8">
               <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-200">
-                🚀 白泽开源团队 - 一个喜欢折腾的大前端团队
+                {t("heroBadge")}
               </div>
               <h1 className="text-4xl leading-tight font-bold text-gray-900 lg:text-6xl dark:text-white">
-                让开发更
+                {t("heroTitle1")}
                 <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  高效
+                  {t("heroHighlight1")}
                 </span>
                 <br />
-                让工作更
+                {t("heroTitle2")}
                 <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  轻松
+                  {t("heroHighlight2")}
                 </span>
               </h1>
               <p className="text-xl leading-relaxed text-gray-600 dark:text-gray-300">
-                {metadata.description}
+                {t("heroDesc")}
               </p>
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="/about"
+                  href="about"
                   className="inline-flex transform items-center rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl"
                 >
-                  了解更多
+                  {tCommon("learnMore")}
                   <svg
                     className="ml-2 h-5 w-5"
                     fill="none"
@@ -108,7 +96,7 @@ export default function Home() {
               <div className="relative z-10">
                 <Image
                   src="/images/logo/icon.png"
-                  alt="白泽开源团队"
+                  alt={tCommon("siteName")}
                   width={300}
                   height={300}
                   className="rounded-2xl shadow-2xl"
@@ -128,10 +116,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="mb-16 text-center">
             <h2 className="mb-4 text-3xl font-bold text-gray-900 lg:text-4xl dark:text-white">
-              常用工具
+              {t("toolsTitle")}
             </h2>
             <p className="mx-auto max-w-2xl text-xl text-gray-600 dark:text-gray-300">
-              精选最实用的开发工具，一键直达，提升开发效率
+              {t("toolsDesc")}
             </p>
           </div>
 
@@ -154,16 +142,16 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                图片压缩工具
+                {t("imageCompressTitle")}
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-300">
-                智能压缩图片，保持画质的同时大幅减小文件体积，支持多种格式
+                {t("imageCompressDesc")}
               </p>
               <Link
-                href="/image-compress"
+                href="image-compress"
                 className="inline-flex items-center font-semibold text-blue-600 transition-colors duration-300 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
-                立即使用
+                {tCommon("useNow")}
                 <svg
                   className="ml-2 h-4 w-4"
                   fill="none"
@@ -198,16 +186,16 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                CDN插件
+                {t("cdnTitle")}
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-300">
-                支持Vite和Webpack的CDN插件，快速配置资源加速，提升加载速度
+                {t("cdnDesc")}
               </p>
               <Link
-                href="/vite-cdn"
+                href="vite-cdn"
                 className="inline-flex items-center font-semibold text-green-600 transition-colors duration-300 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300"
               >
-                查看详情
+                {tCommon("viewDetails")}
                 <svg
                   className="ml-2 h-4 w-4"
                   fill="none"
@@ -242,17 +230,16 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-                VUE & REACT & 微前端
+                {t("microFrontendTitle")}
               </h3>
               <p className="mb-6 text-gray-600 dark:text-gray-300">
-                Vue、React、微前端的快速对比学习项目，让你轻松入门Vue 、
-                React以及微前端
+                {t("microFrontendDesc")}
               </p>
               <Link
-                href="/quick-study"
+                href="quick-study"
                 className="inline-flex items-center font-semibold text-purple-600 transition-colors duration-300 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300"
               >
-                学习更多
+                {tCommon("learnNow")}
                 <svg
                   className="ml-2 h-4 w-4"
                   fill="none"

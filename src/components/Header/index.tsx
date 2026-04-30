@@ -4,9 +4,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
-import menuData from "./menuData";
+import { useTranslations } from "next-intl";
+import { type Locale, locales } from "@/i18n/config";
+import { useRouter } from "next/navigation";
 
-const Header = () => {
+const localeLabels: Record<Locale, string> = {
+  zh: "中文",
+  en: "EN",
+};
+
+const Header = ({ locale }: { locale: Locale }) => {
+  const t = useTranslations("nav");
+  const router = useRouter();
+  const pathname = usePathname();
+
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -28,7 +39,7 @@ const Header = () => {
 
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
+  const handleSubmenu = (index: number) => {
     if (openIndex === index) {
       setOpenIndex(-1);
     } else {
@@ -36,7 +47,70 @@ const Header = () => {
     }
   };
 
-  const usePathName = usePathname();
+  // Language switcher
+  const switchLocale = (newLocale: Locale) => {
+    // Remove current locale from pathname and add new one
+    const segments = pathname.split("/");
+    // pathname starts with /locale/...
+    if (locales.includes(segments[1] as Locale)) {
+      segments[1] = newLocale;
+    } else {
+      segments.splice(1, 0, newLocale);
+    }
+    router.push(segments.join("/"));
+  };
+
+  const menuData = [
+    {
+      id: "home",
+      title: t("home"),
+      path: `/${locale}`,
+      newTab: false,
+    },
+    {
+      id: "imageCompress",
+      title: t("imageCompress"),
+      path: `/${locale}/image-compress`,
+      newTab: false,
+    },
+    {
+      id: "baizeToolbox",
+      title: t("baizeToolbox"),
+      path: `/${locale}/baize-toolbox`,
+      newTab: false,
+    },
+    {
+      id: "more",
+      title: t("more"),
+      newTab: false,
+      submenu: [
+        {
+          id: "vite-cdn",
+          title: t("viteCdn"),
+          path: `/${locale}/vite-cdn`,
+          newTab: false,
+        },
+        {
+          id: "webpack-cdn",
+          title: t("webpackCdn"),
+          path: `/${locale}/webpack-cdn`,
+          newTab: false,
+        },
+        {
+          id: "quick-study",
+          title: t("quickStudy"),
+          path: `/${locale}/quick-study`,
+          newTab: false,
+        },
+        {
+          id: "about",
+          title: t("about"),
+          path: `/${locale}/about`,
+          newTab: false,
+        },
+      ],
+    },
+  ];
 
   return (
     <>
@@ -51,7 +125,7 @@ const Header = () => {
           <div className="relative -mx-4 flex items-center justify-between">
             <div className="max-w-full px-4 xl:mr-12">
               <Link
-                href="/"
+                href={`/${locale}`}
                 className={`header-logo block w-full ${
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
@@ -106,7 +180,7 @@ const Header = () => {
                           <Link
                             href={menuItem.path}
                             className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${
-                              usePathName === menuItem.path
+                              pathname === menuItem.path
                                 ? "text-primary dark:text-white"
                                 : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                             }`}
@@ -136,10 +210,10 @@ const Header = () => {
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
-                              {menuItem.submenu.map((submenuItem, index) => (
+                              {menuItem.submenu.map((submenuItem, subIndex) => (
                                 <Link
                                   href={submenuItem.path}
-                                  key={index}
+                                  key={subIndex}
                                   className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white"
                                 >
                                   {submenuItem.title}
@@ -153,10 +227,24 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <div>
-                  <ThemeToggler />
+              <div className="flex items-center justify-end gap-3 pr-16 lg:pr-0">
+                {/* Language Switcher */}
+                <div className="flex items-center rounded-full bg-gray-100 p-1 dark:bg-gray-800">
+                  {locales.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => switchLocale(loc)}
+                      className={`rounded-full px-3 py-1 text-sm font-medium transition-all duration-200 ${
+                        locale === loc
+                          ? "bg-primary text-white shadow-sm"
+                          : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                      }`}
+                    >
+                      {localeLabels[loc]}
+                    </button>
+                  ))}
                 </div>
+                <ThemeToggler />
               </div>
             </div>
           </div>

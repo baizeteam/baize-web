@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function GithubLink({ href }: { href: string }) {
+  const t = useTranslations("commonUI");
+
   return (
     <div className="container pt-16 md:pt-20 lg:pt-28">
       <div className="mx-auto mb-8 text-center">
@@ -17,7 +20,7 @@ export default function GithubLink({ href }: { href: string }) {
               clipRule="evenodd"
             />
           </svg>
-          查看源码
+          {t("viewSource")}
         </Link>
       </div>
     </div>

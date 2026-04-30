@@ -2,8 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { gitHubUrl } from "@/utils/textHelper";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
+  const tCommon = useTranslations("common");
+  const tNav = useTranslations("nav");
+
   return (
     <>
       <footer className="dark:bg-gray-dark relative z-10 bg-white pt-16 md:pt-20 lg:pt-24">
@@ -23,7 +28,7 @@ const Footer = () => {
                   />
                 </Link>
                 <p className="text-body-color dark:text-body-color-dark mb-9 text-base leading-relaxed">
-                  白泽开源团队 - 一个喜欢折腾的大前端团队
+                  {t("tagline")}
                 </p>
               </div>
             </div>
@@ -31,7 +36,7 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Useful Links
+                  {t("usefulLinks")}
                 </h2>
                 <ul>
                   <li>
@@ -39,7 +44,7 @@ const Footer = () => {
                       href="/image-compress"
                       className="text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base duration-300"
                     >
-                      图片压缩
+                      {tNav("imageCompress")}
                     </Link>
                   </li>
                   <li>
@@ -47,7 +52,7 @@ const Footer = () => {
                       href="/vite-cdn"
                       className="text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base duration-300"
                     >
-                      CDN插件
+                      {tNav("viteCdn")}
                     </Link>
                   </li>
                   <li>
@@ -55,7 +60,7 @@ const Footer = () => {
                       href="/baize-toolbox"
                       className="text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base duration-300"
                     >
-                      白泽工具箱
+                      {tNav("baizeToolbox")}
                     </Link>
                   </li>
                 </ul>
@@ -65,7 +70,7 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  Support & Help
+                  {t("supportHelp")}
                 </h2>
                 <ul>
                   <li>
@@ -74,7 +79,7 @@ const Footer = () => {
                       target="_blank"
                       className="text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base duration-300"
                     >
-                      github
+                      {tCommon("github")}
                     </Link>
                   </li>
                   <li>
@@ -82,7 +87,7 @@ const Footer = () => {
                       href="/about"
                       className="text-body-color hover:text-primary dark:text-body-color-dark dark:hover:text-primary mb-4 inline-block text-base duration-300"
                     >
-                      关于
+                      {tCommon("about")}
                     </Link>
                   </li>
                 </ul>
@@ -93,7 +98,7 @@ const Footer = () => {
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-body-color text-center text-base dark:text-white">
-              白泽开源团队
+              {tCommon("copyright")}
             </p>
           </div>
         </div>
