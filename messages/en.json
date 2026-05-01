@@ -19,6 +19,7 @@
     "viteCdn": "CDN Plugin (Vite)",
     "webpackCdn": "CDN Plugin (Webpack)",
     "quickStudy": "VUE & REACT & Micro Frontend",
+    "baizeEditor": "Collaborative Doc",
     "about": "About"
   },
   "home": {
@@ -35,7 +36,9 @@
     "cdnTitle": "CDN Plugins",
     "cdnDesc": "CDN plugins for Vite and Webpack, quick resource acceleration setup to improve loading speed",
     "microFrontendTitle": "VUE & REACT & Micro Frontend",
-    "microFrontendDesc": "Quick comparison learning projects for Vue, React, and Micro Frontend to help you get started easily"
+    "microFrontendDesc": "Quick comparison learning projects for Vue, React, and Micro Frontend to help you get started easily",
+    "editorTitle": "Collaborative Document",
+    "editorDesc": "A collaborative editor based on Yjs + SlateJS, supporting multi-user editing with instant sync, ideal for team collaboration"
   },
   "about": {
     "title": "About Baize Open Source Team",
@@ -86,6 +89,21 @@
   "quickStudy": {
     "title": "VUE & REACT & Micro Frontend",
     "desc": "A React/Vue3 learning platform based on the micro-app micro-frontend framework. Helps developers quickly master core technologies of both frameworks through comparative learning. Includes practical projects for React Hooks, Vue3 Composition API, state management, routing, as well as micro-frontend architecture and Vite plugin development experience."
+  },
+  "baizeEditor": {
+    "title": "Collaborative Document",
+    "desc": "Baize Collaborative Document is a collaborative editor based on Yjs + SlateJS, supporting multiple users editing simultaneously with instant synchronization. Built with rich text editing technology, it provides a smooth collaboration experience for team document collaboration, meeting notes, brainstorming, and more.",
+    "realtime": "Real-time Collaboration",
+    "realtimeDesc": "Multi-user real-time collaborative editing via Yjs + WebSocket, all changes instantly synced to every participant",
+    "richEditor": "Rich Text Editing",
+    "richEditorDesc": "Supports various rich text formats including headings, lists, code blocks, and more to meet diverse editing needs",
+    "freeOpen": "Free & Open Source",
+    "freeOpenDesc": "Completely free and open source, can be freely deployed on your own server with full data control",
+    "tryNow": "Try Now"
+  },
+  "baizeEditorUI": {
+    "loading": "Loading editor...",
+    "iframeNotSupported": "Your browser does not support iframe, please upgrade and try again"
   },
   "imageCompressUI": {
     "dragText": "Click or drag images here to compress",

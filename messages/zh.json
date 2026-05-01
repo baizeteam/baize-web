@@ -19,6 +19,7 @@
     "viteCdn": "CDN插件(vite)",
     "webpackCdn": "CDN插件(webpack)",
     "quickStudy": "VUE & REACT & 微前端",
+    "baizeEditor": "协同文档",
     "about": "关于"
   },
   "home": {
@@ -35,7 +36,9 @@
     "cdnTitle": "CDN插件",
     "cdnDesc": "支持Vite和Webpack的CDN插件，快速配置资源加速，提升加载速度",
     "microFrontendTitle": "VUE & REACT & 微前端",
-    "microFrontendDesc": "Vue、React、微前端的快速对比学习项目，让你轻松入门Vue 、React以及微前端"
+    "microFrontendDesc": "Vue、React、微前端的快速对比学习项目，让你轻松入门Vue 、React以及微前端",
+    "editorTitle": "协同文档",
+    "editorDesc": "基于 Yjs + SlateJS 的协同编辑器，支持多人同时编辑、实时同步，适用于团队协作场景"
   },
   "about": {
     "title": "关于白泽开源团队",
@@ -86,6 +89,21 @@
   "quickStudy": {
     "title": "VUE & REACT & 微前端",
     "desc": "基于micro-app微前端框架的React/Vue3学习平台，通过对比学习帮助开发者快速掌握两个框架的核心技术。包含React Hooks、Vue3组合式API、状态管理、路由控制等实践项目，以及微前端架构和Vite插件的开发经验。"
+  },
+  "baizeEditor": {
+    "title": "协同文档",
+    "desc": "白泽协同文档是一款基于 Yjs + SlateJS 的协同编辑器，支持多人同时编辑、实时同步。采用富文本编辑技术，提供流畅的协作体验，适用于团队文档协作、会议记录、头脑风暴等场景。",
+    "realtime": "实时协同",
+    "realtimeDesc": "基于 Yjs + WebSocket 实现多人实时协同编辑，所有修改即时同步到每位参与者",
+    "richEditor": "富文本编辑",
+    "richEditorDesc": "支持多种富文本格式，包括标题、列表、代码块等，满足多样化的编辑需求",
+    "freeOpen": "免费开源",
+    "freeOpenDesc": "完全免费开源，可自由部署到自己的服务器，数据安全可控",
+    "tryNow": "立即体验"
+  },
+  "baizeEditorUI": {
+    "loading": "编辑器加载中...",
+    "iframeNotSupported": "您的浏览器不支持 iframe，请升级浏览器后重试"
   },
   "imageCompressUI": {
     "dragText": "点击或拖拽图片到此区域进行压缩",

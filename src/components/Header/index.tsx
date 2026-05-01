@@ -74,6 +74,12 @@ const Header = ({ locale }: { locale: Locale }) => {
       newTab: false,
     },
     {
+      id: "baize-editor",
+      title: t("baizeEditor"),
+      path: `/${locale}/baize-editor`,
+      newTab: false,
+    },
+    {
       id: "baizeToolbox",
       title: t("baizeToolbox"),
       path: `/${locale}/baize-toolbox`,
@@ -102,6 +108,7 @@ const Header = ({ locale }: { locale: Locale }) => {
           path: `/${locale}/quick-study`,
           newTab: false,
         },
+
         {
           id: "about",
           title: t("about"),

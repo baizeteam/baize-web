@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/image-compress",
     "/baize-toolbox",
+    "/baize-editor",
     "/quick-study",
     "/vite-cdn",
     "/webpack-cdn",

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [editorFullscreen, setEditorFullscreen] = useState(false);
 
   // Top: 0 takes us all the way back to the top of the page
   // Behavior: smooth keeps it smooth!
@@ -14,7 +15,6 @@ export default function ScrollToTop() {
   };
 
   useEffect(() => {
-    // Button is displayed after scrolling for 500 pixels
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
         setIsVisible(true);
@@ -23,14 +23,27 @@ export default function ScrollToTop() {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    const handleEditorFullscreen = (e: Event) => {
+      setEditorFullscreen(
+        (e as CustomEvent<{ fullscreen: boolean }>).detail.fullscreen,
+      );
+    };
 
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    window.addEventListener("editor-fullscreen-change", handleEditorFullscreen);
+
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener(
+        "editor-fullscreen-change",
+        handleEditorFullscreen,
+      );
+    };
   }, []);
 
   return (
     <div className="fixed right-8 bottom-8 z-99">
-      {isVisible && (
+      {isVisible && !editorFullscreen && (
         <div
           onClick={scrollToTop}
           aria-label="scroll to top"

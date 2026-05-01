@@ -124,6 +124,50 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* 协同文档 */}
+            <div className="group transform rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:from-gray-800 dark:to-gray-700">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 to-amber-600 transition-transform duration-300 group-hover:scale-110">
+                <svg
+                  className="h-8 w-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <h3 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+                {t("editorTitle")}
+              </h3>
+              <p className="mb-6 text-gray-600 dark:text-gray-300">
+                {t("editorDesc")}
+              </p>
+              <Link
+                href="baize-editor"
+                className="inline-flex items-center font-semibold text-orange-600 transition-colors duration-300 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300"
+              >
+                {tCommon("useNow")}
+                <svg
+                  className="ml-2 h-4 w-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+
             {/* 图片压缩工具 */}
             <div className="group transform rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl dark:from-gray-800 dark:to-gray-700">
               <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 transition-transform duration-300 group-hover:scale-110">
