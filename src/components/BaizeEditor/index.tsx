@@ -10,11 +10,11 @@ export default function BaizeEditor() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <section className="py-8 md:py-12">
+    <section className="py-4 md:py-12">
       <div className={"container"}>
         <div
           className={
-            "relative aspect-video w-full overflow-hidden rounded-xl border border-gray-200 shadow-lg dark:border-gray-700"
+            "relative aspect-[7/13] w-full overflow-hidden rounded-xl border border-gray-200 shadow-lg md:aspect-[13/7] dark:border-gray-700"
           }
         >
           {loading && (
