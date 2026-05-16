@@ -24,7 +24,7 @@ export default function UploadArea({ onFilesAdded }: UploadAreaProps) {
     <div className="mb-8">
       <Dragger
         showUploadList={false}
-        accept="image/jpg,image/jpeg,image/webp,image/png"
+        accept="image/jpg,image/jpeg,image/webp,image/png,image/svg+xml"
         customRequest={handleChange}
         multiple
       >

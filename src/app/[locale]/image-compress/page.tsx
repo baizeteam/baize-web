@@ -1,6 +1,6 @@
 import Introduce from "@/components/Common/Introduce";
 import PageInfo from "@/components/Common/PageInfo";
-import ImageCompress from "@/components/ImageCompress";
+import ImageCompressWrapper from "@/components/ImageCompress/ImageCompressWrapper";
 import Link from "next/link";
 import { baseUrl, gitHubUrl } from "@/utils/textHelper";
 import { useTranslations } from "next-intl";
@@ -80,7 +80,7 @@ const ImageCompressPage = () => {
   return (
     <>
       <PageInfo title={t("title")} description={t("desc")} />
-      <ImageCompress />
+      <ImageCompressWrapper />
       <Introduce introduceList={introduceList} />
     </>
   );
