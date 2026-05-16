@@ -1,6 +1,6 @@
 import Introduce from "@/components/Common/Introduce";
 import PageInfo from "@/components/Common/PageInfo";
-import SelectImage from "@/components/ImageCompress/SelectImage";
+import ImageCompress from "@/components/ImageCompress";
 import Link from "next/link";
 import { baseUrl, gitHubUrl } from "@/utils/textHelper";
 import { useTranslations } from "next-intl";
@@ -51,7 +51,7 @@ export async function generateMetadata({
   };
 }
 
-const ImageCompress = () => {
+const ImageCompressPage = () => {
   const t = useTranslations("imageCompress");
 
   const introduceList = [
@@ -80,10 +80,10 @@ const ImageCompress = () => {
   return (
     <>
       <PageInfo title={t("title")} description={t("desc")} />
-      <SelectImage />
+      <ImageCompress />
       <Introduce introduceList={introduceList} />
     </>
   );
 };
 
-export default ImageCompress;
+export default ImageCompressPage;
