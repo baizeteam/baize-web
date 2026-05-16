@@ -60,7 +60,7 @@
   },
   "imageCompress": {
     "title": "Image Compression",
-    "desc": "A professional open-source image compression tool by the Baize team. Supports JPG, JPEG, WebP, and PNG formats. Uses queue + concurrent processing technology for efficient batch compression. Drag and drop to start, with real-time progress and comparison.",
+    "desc": "A professional open-source image compression tool by the Baize team. Supports JPG, JPEG, WebP, PNG, and SVG formats. Uses queue + concurrent processing technology for efficient batch compression. Drag and drop to start, with real-time progress and comparison.",
     "free": "Free",
     "freeDesc": "Whether it's the website or NPM package, everything is free!",
     "highPerformance": "High Performance",
@@ -109,7 +109,7 @@
   },
   "imageCompressUI": {
     "dragText": "Click or drag images here to compress",
-    "dragHint": "Supports single or batch compression, compatible with JPG, JPEG, WebP, PNG formats",
+    "dragHint": "Supports single or batch compression, compatible with JPG, JPEG, WebP, PNG, SVG formats",
     "totalImages": "{count} image(s) in total",
     "originalSize": "Original Size",
     "compressedSize": "Compressed Size",

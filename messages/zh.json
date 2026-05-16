@@ -60,7 +60,7 @@
   },
   "imageCompress": {
     "title": "图片压缩",
-    "desc": "白泽团队开源的专业图片压缩工具，支持JPG、JPEG、WebP、PNG格式，采用队列+并发处理技术，提供高效的批量压缩服务。拖拽上传即可开始压缩，实时显示压缩进度和效果对比。",
+    "desc": "白泽团队开源的专业图片压缩工具，支持JPG、JPEG、WebP、PNG、SVG格式，采用队列+并发处理技术，提供高效的批量压缩服务。拖拽上传即可开始压缩，实时显示压缩进度和效果对比。",
     "free": "免费",
     "freeDesc": "网站也好，NPM包也好，全部免费用！",
     "highPerformance": "高性能",
@@ -109,7 +109,7 @@
   },
   "imageCompressUI": {
     "dragText": "点击或拖拽图片到此区域进行压缩",
-    "dragHint": "支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG 格式",
+    "dragHint": "支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG、SVG 格式",
     "totalImages": "共 {count} 张图片",
     "originalSize": "原始大小",
     "compressedSize": "压缩后大小",
