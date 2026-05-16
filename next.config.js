@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
+import { codeInspectorPlugin } from 'code-inspector-plugin';
+import createNextIntlPlugin from 'next-intl/plugin';
+
 const nextConfig = {
+  turbopack: {
+    rules: codeInspectorPlugin({
+      bundler: 'turbopack',
+    }),
+  },
   images: {
     remotePatterns: [
       {
@@ -11,8 +19,6 @@ const nextConfig = {
   },
 };
 
-const createNextIntlPlugin = require("next-intl/plugin");
+const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
-
-module.exports = withNextIntl(nextConfig);
+export default withNextIntl(nextConfig); // 用 export default
