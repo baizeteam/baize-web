@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { DownloadOutlined } from "@ant-design/icons";
+import { DownloadOutlined, CloudDownloadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useTranslations } from "next-intl";
 import { ImageItem } from "./types";
@@ -9,6 +9,7 @@ interface ImageListProps {
   imageList: ImageItem[];
   onDownload: (imageItem: ImageItem) => void;
   onRetry: (imageItem: ImageItem) => void;
+  onBatchDownload: () => void;
 }
 
 function formatFileSize(bytes: number): string {
@@ -49,6 +50,7 @@ export default function ImageList({
   imageList,
   onDownload,
   onRetry,
+  onBatchDownload,
 }: ImageListProps) {
   const t = useTranslations("imageCompressUI");
 
@@ -72,6 +74,15 @@ export default function ImageList({
         <div className="text-gray-600 dark:text-gray-300">
           {t("totalImages", { count: imageList.length })}
         </div>
+        {imageList.some((img) => img.status === "completed") && (
+          <Button
+            type="primary"
+            icon={<CloudDownloadOutlined />}
+            onClick={onBatchDownload}
+          >
+            {t("batchDownload")}
+          </Button>
+        )}
       </div>
 
       {/* 图片列表 */}

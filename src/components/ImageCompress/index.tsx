@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { ImageCompressor } from "baize-compress-image";
+import JSZip from "jszip";
 import { useTranslations } from "next-intl";
 import { ImageItem } from "./types";
 import UploadArea from "./UploadArea";
@@ -93,6 +94,38 @@ export default function ImageCompress() {
     }
   };
 
+  const batchDownload = async () => {
+    const completed = imageList.filter((img) => img.compressedFile);
+    if (completed.length === 0) return;
+
+    const zip = new JSZip();
+    const nameCount: Record<string, number> = {};
+    for (const img of completed) {
+      let fileName = `compressed_${img.originalFile.name}`;
+      if (nameCount[fileName]) {
+        nameCount[fileName]++;
+        const dot = fileName.lastIndexOf(".");
+        fileName =
+          dot > 0
+            ? `${fileName.slice(0, dot)}_${nameCount[fileName]}${fileName.slice(dot)}`
+            : `${fileName}_${nameCount[fileName]}`;
+      } else {
+        nameCount[fileName] = 1;
+      }
+      zip.file(fileName, img.compressedFile!);
+    }
+
+    const blob = await zip.generateAsync({ type: "blob" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "baize_compressed_images.zip";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   const downloadImage = (imageItem: ImageItem) => {
     if (imageItem.compressedFile) {
       const url = URL.createObjectURL(imageItem.compressedFile);
@@ -115,6 +148,7 @@ export default function ImageCompress() {
             imageList={imageList}
             onDownload={downloadImage}
             onRetry={compressImage}
+            onBatchDownload={batchDownload}
           />
         )}
       </div>

@@ -125,7 +125,8 @@
     "statusCompleted": "Completed",
     "statusCompressing": "Compressing...",
     "statusFailed": "Failed",
-    "compressFailedMsg": "Compression failed"
+    "compressFailedMsg": "Compression failed",
+    "batchDownload": "Download All"
   },
   "toolboxUI": {
     "download": "Download",

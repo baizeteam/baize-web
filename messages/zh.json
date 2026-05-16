@@ -125,7 +125,8 @@
     "statusCompleted": "已完成",
     "statusCompressing": "压缩中...",
     "statusFailed": "压缩失败",
-    "compressFailedMsg": "压缩失败"
+    "compressFailedMsg": "压缩失败",
+    "batchDownload": "批量下载"
   },
   "toolboxUI": {
     "download": "下载",
