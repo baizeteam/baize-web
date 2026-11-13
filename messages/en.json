@@ -60,7 +60,7 @@
   },
   "imageCompress": {
     "title": "Image Compression",
-    "desc": "A professional open-source image compression tool by the Baize team. Supports JPG, JPEG, WebP, PNG, and SVG formats. Uses queue + concurrent processing technology for efficient batch compression. Drag and drop to start, with real-time progress and comparison.",
+    "desc": "A professional open-source image compression tool by the Baize team. Supports JPG, JPEG, WebP, PNG, SVG, and GIF formats. Uses queue + concurrent processing technology for efficient batch compression. Drag and drop to start, with real-time progress and comparison.",
     "free": "Free",
     "freeDesc": "Whether it's the website or NPM package, everything is free!",
     "highPerformance": "High Performance",
@@ -108,14 +108,19 @@
     "iframeNotSupported": "Your browser does not support iframe, please upgrade and try again"
   },
   "imageCompressUI": {
+    "quality": "Quality",
+    "qualityHint": "Lower values mean smaller files and more quality loss. Applies to JPG / WebP / PNG / GIF",
     "dragText": "Click or drag images here to compress",
-    "dragHint": "Supports single or batch compression, compatible with JPG, JPEG, WebP, PNG, SVG formats",
+    "dragHint": "Supports single or batch compression, compatible with JPG, JPEG, WebP, PNG, SVG, GIF formats",
     "totalImages": "{count} image(s) in total",
     "originalSize": "Original Size",
     "compressedSize": "Compressed Size",
     "compressRate": "Compression Rate",
     "compressTime": "Time Taken",
     "downloadCompressed": "Download Compressed",
+    "compare": "Compare",
+    "compareOriginal": "Before",
+    "compareCompressed": "After",
     "retry": "Retry",
     "compressStats": "Compression Statistics",
     "totalCount": "Total Images",
@@ -126,7 +131,8 @@
     "statusCompressing": "Compressing...",
     "statusFailed": "Failed",
     "compressFailedMsg": "Compression failed",
-    "batchDownload": "Download All"
+    "batchDownload": "Download All",
+    "clearAll": "Clear"
   },
   "toolboxUI": {
     "download": "Download",

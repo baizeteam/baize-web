@@ -1,15 +1,22 @@
 "use client";
-import React from "react";
-import { DownloadOutlined, CloudDownloadOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import {
+  DownloadOutlined,
+  CloudDownloadOutlined,
+  ColumnWidthOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { Button } from "antd";
 import { useTranslations } from "next-intl";
 import { ImageItem } from "./types";
+import CompareModal from "./CompareModal";
 
 interface ImageListProps {
   imageList: ImageItem[];
   onDownload: (imageItem: ImageItem) => void;
   onRetry: (imageItem: ImageItem) => void;
   onBatchDownload: () => void;
+  onClear: () => void;
 }
 
 function formatFileSize(bytes: number): string {
@@ -51,8 +58,10 @@ export default function ImageList({
   onDownload,
   onRetry,
   onBatchDownload,
+  onClear,
 }: ImageListProps) {
   const t = useTranslations("imageCompressUI");
+  const [compareItem, setCompareItem] = useState<ImageItem | null>(null);
 
   const getStatusText = (status: string) => {
     switch (status) {
@@ -70,19 +79,24 @@ export default function ImageList({
   return (
     <>
       {/* 操作按钮 */}
-      <div className="mb-6 flex items-center justify-between">
+      <div className="mb-6 flex items-center justify-between gap-3">
         <div className="text-gray-600 dark:text-gray-300">
           {t("totalImages", { count: imageList.length })}
         </div>
-        {imageList.some((img) => img.status === "completed") && (
-          <Button
-            type="primary"
-            icon={<CloudDownloadOutlined />}
-            onClick={onBatchDownload}
-          >
-            {t("batchDownload")}
+        <div className="flex flex-wrap items-center gap-3">
+          <Button icon={<DeleteOutlined />} onClick={onClear}>
+            {t("clearAll")}
           </Button>
-        )}
+          {imageList.some((img) => img.status === "completed") && (
+            <Button
+              type="primary"
+              icon={<CloudDownloadOutlined />}
+              onClick={onBatchDownload}
+            >
+              {t("batchDownload")}
+            </Button>
+          )}
+        </div>
       </div>
 
       {/* 图片列表 */}
@@ -121,7 +135,7 @@ export default function ImageList({
                 </div>
 
                 {/* 文件信息 */}
-                <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-4">
+                <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       {t("originalSize")}
@@ -138,6 +152,14 @@ export default function ImageList({
                         </p>
                         <p className="font-medium dark:text-gray-200">
                           {formatFileSize(imageItem.compressedSize)}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {t("quality")}
+                        </p>
+                        <p className="font-medium dark:text-gray-200">
+                          {imageItem.quality ?? "-"}%
                         </p>
                       </div>
                       <div>
@@ -161,16 +183,24 @@ export default function ImageList({
                 </div>
 
                 {/* 操作按钮 */}
-                <div className="flex items-center space-x-3">
+                <div className="flex flex-wrap items-center gap-3">
                   {imageItem.status === "completed" &&
                     imageItem.compressedFile && (
-                      <Button
-                        type="primary"
-                        icon={<DownloadOutlined />}
-                        onClick={() => onDownload(imageItem)}
-                      >
-                        {t("downloadCompressed")}
-                      </Button>
+                      <>
+                        <Button
+                          icon={<ColumnWidthOutlined />}
+                          onClick={() => setCompareItem(imageItem)}
+                        >
+                          {t("compare")}
+                        </Button>
+                        <Button
+                          type="primary"
+                          icon={<DownloadOutlined />}
+                          onClick={() => onDownload(imageItem)}
+                        >
+                          {t("downloadCompressed")}
+                        </Button>
+                      </>
                     )}
 
                   {imageItem.status === "error" && (
@@ -232,6 +262,12 @@ export default function ImageList({
           </div>
         </div>
       </div>
+
+      <CompareModal
+        imageItem={compareItem}
+        open={!!compareItem}
+        onClose={() => setCompareItem(null)}
+      />
     </>
   );
 }

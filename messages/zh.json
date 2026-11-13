@@ -60,7 +60,7 @@
   },
   "imageCompress": {
     "title": "图片压缩",
-    "desc": "白泽团队开源的专业图片压缩工具，支持JPG、JPEG、WebP、PNG、SVG格式，采用队列+并发处理技术，提供高效的批量压缩服务。拖拽上传即可开始压缩，实时显示压缩进度和效果对比。",
+    "desc": "白泽团队开源的专业图片压缩工具，支持JPG、JPEG、WebP、PNG、SVG、GIF格式，采用队列+并发处理技术，提供高效的批量压缩服务。拖拽上传即可开始压缩，实时显示压缩进度和效果对比。",
     "free": "免费",
     "freeDesc": "网站也好，NPM包也好，全部免费用！",
     "highPerformance": "高性能",
@@ -108,14 +108,19 @@
     "iframeNotSupported": "您的浏览器不支持 iframe，请升级浏览器后重试"
   },
   "imageCompressUI": {
+    "quality": "压缩质量",
+    "qualityHint": "数值越低体积越小，画质也会相应下降；对 JPG / WebP / PNG / GIF 生效",
     "dragText": "点击或拖拽图片到此区域进行压缩",
-    "dragHint": "支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG、SVG 格式",
+    "dragHint": "支持单张或批量压缩，支持 JPG、JPEG、WebP、PNG、SVG、GIF 格式",
     "totalImages": "共 {count} 张图片",
     "originalSize": "原始大小",
     "compressedSize": "压缩后大小",
     "compressRate": "压缩率",
     "compressTime": "压缩耗时",
     "downloadCompressed": "下载压缩后图片",
+    "compare": "对比",
+    "compareOriginal": "压缩前",
+    "compareCompressed": "压缩后",
     "retry": "重试",
     "compressStats": "压缩统计",
     "totalCount": "总图片数",
@@ -126,7 +131,8 @@
     "statusCompressing": "压缩中...",
     "statusFailed": "压缩失败",
     "compressFailedMsg": "压缩失败",
-    "batchDownload": "批量下载"
+    "batchDownload": "批量下载",
+    "clearAll": "清空"
   },
   "toolboxUI": {
     "download": "下载",

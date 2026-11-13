@@ -24,8 +24,8 @@ importers:
         specifier: ^6.4.2
         version: 6.4.2(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       baize-compress-image:
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: file:../baize-package/packages/baize-compress-image
+        version: file:../baize-package/packages/baize-compress-image
       jszip:
         specifier: ^3.10.1
         version: 3.10.1
@@ -380,58 +380,6 @@ packages:
   '@next/env@16.2.2':
     resolution: {integrity: sha512-LqSGz5+xGk9EL/iBDr2yo/CgNQV6cFsNhRR2xhSXYh7B/hb4nePCxlmDvGEKG30NMHDFf0raqSyOZiQrO7BkHQ==}
 
-  '@next/swc-darwin-arm64@16.2.2':
-    resolution: {integrity: sha512-B92G3ulrwmkDSEJEp9+XzGLex5wC1knrmCSIylyVeiAtCIfvEJYiN3v5kXPlYt5R4RFlsfO/v++aKV63Acrugg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@next/swc-darwin-x64@16.2.2':
-    resolution: {integrity: sha512-7ZwSgNKJNQiwW0CKhNm9B1WS2L1Olc4B2XY0hPYCAL3epFnugMhuw5TMWzMilQ3QCZcCHoYm9NGWTHbr5REFxw==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@next/swc-linux-arm64-gnu@16.2.2':
-    resolution: {integrity: sha512-c3m8kBHMziMgo2fICOP/cd/5YlrxDU5YYjAJeQLyFsCqVF8xjOTH/QYG4a2u48CvvZZSj1eHQfBCbyh7kBr30Q==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-
-  '@next/swc-linux-arm64-musl@16.2.2':
-    resolution: {integrity: sha512-VKLuscm0P/mIfzt+SDdn2+8TNNJ7f0qfEkA+az7OqQbjzKdBxAHs0UvuiVoCtbwX+dqMEL9U54b5wQ/aN3dHeg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
-  '@next/swc-linux-x64-gnu@16.2.2':
-    resolution: {integrity: sha512-kU3OPHJq6sBUjOk7wc5zJ7/lipn8yGldMoAv4z67j6ov6Xo/JvzA7L7LCsyzzsXmgLEhk3Qkpwqaq/1+XpNR3g==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
-  '@next/swc-linux-x64-musl@16.2.2':
-    resolution: {integrity: sha512-CKXRILyErMtUftp+coGcZ38ZwE/Aqq45VMCcRLr2I4OXKrgxIBDXHnBgeX/UMil0S09i2JXaDL3Q+TN8D/cKmg==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
-  '@next/swc-win32-arm64-msvc@16.2.2':
-    resolution: {integrity: sha512-sS/jSk5VUoShUqINJFvNjVT7JfR5ORYj/+/ZpOYbbIohv/lQfduWnGAycq2wlknbOql2xOR0DoV0s6Xfcy49+g==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@next/swc-win32-x64-msvc@16.2.2':
-    resolution: {integrity: sha512-aHaKceJgdySReT7qeck5oShucxWRiiEuwCGK8HHALe6yZga8uyFpLkPgaRw3kkF04U7ROogL/suYCNt/+CuXGA==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [win32]
-
   '@parcel/watcher-android-arm64@2.5.6':
     resolution: {integrity: sha512-YQxSS34tPF/6ZG7r/Ih9xy+kP/WwediEUsqmtf0cuCV5TPPKw/PQHRhueUo6JdeFJaqV3pyjm0GdYjZotbRt/A==}
     engines: {node: '>= 10.0.0'}
@@ -502,12 +450,6 @@ packages:
     resolution: {integrity: sha512-3ukyebjc6eGlw9yRt678DxVF7rjXatWiHvTXqphZLvo7aC5NdEgFufVwjFfY51ijYEWpXbqF5jtrK275z52D4Q==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
-    os: [win32]
-
-  '@parcel/watcher-win32-ia32@2.5.6':
-    resolution: {integrity: sha512-k35yLp1ZMwwee3Ez/pxBi5cf4AoBKYXj00CZ80jUz5h8prpiaQsiRPKQMxoLstNuqe2vR4RNPEAEcjEFzhEz/g==}
-    engines: {node: '>= 10.0.0'}
-    cpu: [ia32]
     os: [win32]
 
   '@parcel/watcher-win32-x64@2.5.6':
@@ -1054,8 +996,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  baize-compress-image@2.1.1:
-    resolution: {integrity: sha512-jlGp+fhrvfelrRWhnF3swRmYoy+RT4QDrdIgExF+DyrJt65N7tnw0cKt3kOuBM4IzdGTe2XW3bm3wH7Ea9CtoA==}
+  baize-compress-image@file:../baize-package/packages/baize-compress-image:
+    resolution: {directory: ../baize-package/packages/baize-compress-image, type: directory}
 
   baseline-browser-mapping@2.10.15:
     resolution: {integrity: sha512-1nfKCq9wuAZFTkA2ey/3OXXx7GzFjLdkTiFVNwlJ9WqdI706CZRIhEqjuwanjMIja+84jDLa9rcyZDPDiVkASQ==}
@@ -1839,30 +1781,6 @@ snapshots:
 
   '@next/env@16.2.2': {}
 
-  '@next/swc-darwin-arm64@16.2.2':
-    optional: true
-
-  '@next/swc-darwin-x64@16.2.2':
-    optional: true
-
-  '@next/swc-linux-arm64-gnu@16.2.2':
-    optional: true
-
-  '@next/swc-linux-arm64-musl@16.2.2':
-    optional: true
-
-  '@next/swc-linux-x64-gnu@16.2.2':
-    optional: true
-
-  '@next/swc-linux-x64-musl@16.2.2':
-    optional: true
-
-  '@next/swc-win32-arm64-msvc@16.2.2':
-    optional: true
-
-  '@next/swc-win32-x64-msvc@16.2.2':
-    optional: true
-
   '@parcel/watcher-android-arm64@2.5.6':
     optional: true
 
@@ -1896,9 +1814,6 @@ snapshots:
   '@parcel/watcher-win32-arm64@2.5.6':
     optional: true
 
-  '@parcel/watcher-win32-ia32@2.5.6':
-    optional: true
-
   '@parcel/watcher-win32-x64@2.5.6':
     optional: true
 
@@ -1920,7 +1835,6 @@ snapshots:
       '@parcel/watcher-linux-x64-glibc': 2.5.6
       '@parcel/watcher-linux-x64-musl': 2.5.6
       '@parcel/watcher-win32-arm64': 2.5.6
-      '@parcel/watcher-win32-ia32': 2.5.6
       '@parcel/watcher-win32-x64': 2.5.6
 
   '@rc-component/async-validator@5.1.0':
@@ -2502,7 +2416,7 @@ snapshots:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  baize-compress-image@2.1.1: {}
+  baize-compress-image@file:../baize-package/packages/baize-compress-image: {}
 
   baseline-browser-mapping@2.10.15: {}
 
@@ -2727,14 +2641,6 @@ snapshots:
       react-dom: 19.1.1(react@19.1.1)
       styled-jsx: 5.1.6(react@19.1.1)
     optionalDependencies:
-      '@next/swc-darwin-arm64': 16.2.2
-      '@next/swc-darwin-x64': 16.2.2
-      '@next/swc-linux-arm64-gnu': 16.2.2
-      '@next/swc-linux-arm64-musl': 16.2.2
-      '@next/swc-linux-x64-gnu': 16.2.2
-      '@next/swc-linux-x64-musl': 16.2.2
-      '@next/swc-win32-arm64-msvc': 16.2.2
-      '@next/swc-win32-x64-msvc': 16.2.2
       sharp: 0.34.5
     transitivePeerDependencies:
       - '@babel/core'
