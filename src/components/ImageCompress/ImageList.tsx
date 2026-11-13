@@ -10,6 +10,7 @@ import { Button } from "antd";
 import { useTranslations } from "next-intl";
 import { ImageItem } from "./types";
 import CompareModal from "./CompareModal";
+import Thumbnail from "./Thumbnail";
 
 interface ImageListProps {
   imageList: ImageItem[];
@@ -109,9 +110,8 @@ export default function ImageList({
             <div className="flex items-start space-x-4">
               {/* 图片预览 */}
               <div className="flex-shrink-0">
-                <img
-                  src={URL.createObjectURL(imageItem.originalFile)}
-                  alt={imageItem.originalFile.name}
+                <Thumbnail
+                  item={imageItem}
                   className="h-24 w-24 rounded-lg border object-cover"
                 />
               </div>
@@ -120,7 +120,7 @@ export default function ImageList({
               <div className="min-w-0 flex-1">
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="truncate text-lg font-medium text-gray-900 dark:text-gray-100">
-                    {imageItem.originalFile.name}
+                    {imageItem.fileName}
                   </h3>
                   <div className="flex items-center space-x-2">
                     <span
@@ -203,7 +203,7 @@ export default function ImageList({
                       </>
                     )}
 
-                  {imageItem.status === "error" && (
+                  {imageItem.status === "error" && imageItem.originalFile && (
                     <Button onClick={() => onRetry(imageItem)}>
                       {t("retry")}
                     </Button>

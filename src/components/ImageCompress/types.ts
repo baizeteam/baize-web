@@ -1,6 +1,10 @@
 export interface ImageItem {
   id: string;
-  originalFile: File;
+  fileName: string;
+  /** 压缩完成并生成 previewBlob 后会释放，以降低内存 */
+  originalFile?: File;
+  /** 缩小后的原图预览，用于列表 / 对比 */
+  previewBlob?: Blob;
   compressedFile?: File;
   originalSize: number;
   compressedSize?: number;

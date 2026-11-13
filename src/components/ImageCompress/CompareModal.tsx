@@ -34,20 +34,25 @@ export default function CompareModal({
       return;
     }
 
-    const nextOriginal = URL.createObjectURL(imageItem.originalFile);
+    const beforeSource = imageItem.previewBlob || imageItem.originalFile;
+    const nextOriginal = beforeSource
+      ? URL.createObjectURL(beforeSource)
+      : "";
     const nextCompressed = URL.createObjectURL(imageItem.compressedFile);
     setOriginalUrl(nextOriginal);
     setCompressedUrl(nextCompressed);
 
     return () => {
-      URL.revokeObjectURL(nextOriginal);
+      if (nextOriginal) URL.revokeObjectURL(nextOriginal);
       URL.revokeObjectURL(nextCompressed);
     };
   }, [open, imageItem]);
 
   return (
     <Modal
-      title={imageItem ? `${t("compare")} - ${imageItem.originalFile.name}` : t("compare")}
+      title={
+        imageItem ? `${t("compare")} - ${imageItem.fileName}` : t("compare")
+      }
       open={open}
       onCancel={onClose}
       footer={null}
