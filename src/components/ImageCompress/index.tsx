@@ -18,44 +18,16 @@ const DEFAULT_QUALITY = 70;
 /** 同时压缩的张数；过大时 OffscreenCanvas 解码会把内存打满 */
 const MAX_CONCURRENT = 4;
 
-const PLUGIN_MODULE_URLS = [
-  new URL(
-    "baize-compress-image/plugins/jpeg-webp-compress.js",
-    import.meta.url,
-  ).href,
-  new URL("baize-compress-image/plugins/png-compress.js", import.meta.url).href,
-  new URL("baize-compress-image/plugins/svg-compress.js", import.meta.url).href,
-  new URL("baize-compress-image/plugins/gif-compress.js", import.meta.url)
-    .href,
-];
-
-function prefetchPluginModules() {
-  for (const url of PLUGIN_MODULE_URLS) {
-    void fetch(url).catch(() => {});
-  }
-}
-
 function createCompressor(quality: number) {
   const q = quality / 100;
-  prefetchPluginModules();
+  // 内置插件已自带压缩模块地址，业务侧只需传压缩参数
   return new ImageCompressor({
     workerNum: MAX_CONCURRENT,
     plugins: [
-      jpegWebp({
-        quality: q,
-        moduleUrl: PLUGIN_MODULE_URLS[0],
-      }),
-      png({
-        quality: q,
-        moduleUrl: PLUGIN_MODULE_URLS[1],
-      }),
-      svg({
-        moduleUrl: PLUGIN_MODULE_URLS[2],
-      }),
-      gif({
-        quality: q,
-        moduleUrl: PLUGIN_MODULE_URLS[3],
-      }),
+      jpegWebp({ quality: q }),
+      png({ quality: q }),
+      svg(),
+      gif({ quality: q, optimize: 1 }),
     ],
   });
 }
